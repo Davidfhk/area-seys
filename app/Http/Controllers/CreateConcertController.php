@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\TestResource;
 use Illuminate\Http\Request;
 use Src\Infrastructure\CreateConcertController as InfrastructureCreateConcertController;
 class CreateConcertController extends Controller
