@@ -15,15 +15,16 @@ return new class extends Migration
     {
         Schema::create('grupos_conciertos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_grupo');
-            $table->unsignedBigInteger('id_concierto');
-            $table->index('id_grupo');
-            $table->index('id_concierto');
+            $table->unsignedBigInteger('grupo_id');
+            $table->unsignedBigInteger('concierto_id');
+            $table->index('grupo_id');
+            $table->index('concierto_id');
+            $table->timestamps();
         });
 
        Schema::table('grupos_conciertos', function($table) {
-            $table->foreign('id_grupo')->references('id')->on('grupos');
-            $table->foreign('id_concierto')->references('id')->on('conciertos');
+            $table->foreign('grupo_id')->references('id')->on('grupos');
+            $table->foreign('concierto_id')->references('id')->on('conciertos');
        });
     }
 

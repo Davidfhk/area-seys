@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\ValueObjects;
+namespace Src\Domain\ValueObjects\Concert;
 
 final class ConcertAdvertisingMediaIds
 {
@@ -10,7 +10,7 @@ final class ConcertAdvertisingMediaIds
 
     public function __construct(array $ids)
     {
-        $this->value = $id;
+        $this->value = $ids;
     }
 
     public function value(): array

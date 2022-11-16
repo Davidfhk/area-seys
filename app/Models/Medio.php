@@ -12,6 +12,6 @@ class Medio extends Model
 
     public function conciertos()
     {
-        return $this->belongsToMany(Concierto::class);
+        return $this->belongsToMany(Concierto::class,'grupos_medios');
     }
 }

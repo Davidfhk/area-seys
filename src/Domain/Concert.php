@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Src\Domain;
 
-use Src\Domain\ValueObjects\ConcertName;
-use Src\Domain\ValueObjects\ConcertDate;
-use Src\Domain\ValueObjects\ConcertEnclosureId;
-use Src\Domain\ValueObjects\ConcertViewers;
-use Src\Domain\ValueObjects\ConcertPromoterId;
-use Src\Domain\ValueObjects\ConcertAdvertisingMediaIds;
-use Src\Domain\ValueObjects\ConcertGroupsId;
+use Src\Domain\Enclosure;
+use Src\Domain\ValueObjects\Concert\ConcertName;
+use Src\Domain\ValueObjects\Concert\ConcertDate;
+use Src\Domain\ValueObjects\Concert\ConcertEnclosureId;
+use Src\Domain\ValueObjects\Concert\ConcertViewers;
+use Src\Domain\ValueObjects\Concert\ConcertPromoterId;
+use Src\Domain\ValueObjects\Concert\ConcertAdvertisingMediaIds;
+use Src\Domain\ValueObjects\Concert\ConcertGroupsId;
 
 final class Concert
 {
@@ -28,8 +29,8 @@ final class Concert
         ConcertEnclosureId $enclosureId,
         ConcertViewers $viewers,
         ConcertPromoterId $promoterId,
-        ConcertAdvertisingMediaIds $advertisingMediaIds,
-        ConcertGroupsId $groupsId,
+        ?ConcertAdvertisingMediaIds $advertisingMediaIds,
+        ?ConcertGroupsId $groupsId,
     )
     {
         $this->name                = $name;
@@ -64,6 +65,12 @@ final class Concert
     public function promoterId(): ConcertPromoterId
     {
         return $this->promoterId;
+    }
+
+    public function profitability(Enclosure $enclosure): int
+    {
+        return ($this->viewers->value() * $enclosure->entryPrice()->value()) - 
+        $enclosure->rentalCost()->value();
     }
 
     public function advertisingMediaIds(): ConcertAdvertisingMediaIds

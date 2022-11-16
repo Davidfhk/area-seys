@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\ValueObjects;
+namespace Src\Domain\ValueObjects\Promoter;
 
-final class ConcertDate
+final class PromoterName
 {
     private $value;
 
-    public function __construct(string $date)
+    public function __construct(string $name)
     {
-        $this->value = $date;
+        $this->value = $name;
     }
 
     public function value(): string

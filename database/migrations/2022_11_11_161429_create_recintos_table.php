@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->integer('coste_alquiler');
             $table->integer('precio_entrada');
+            $table->timestamps();
         });
     }
 

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Concierto extends Model
 {
     use HasFactory;
-    protected $fillable = ['id_promotor','id_recinto','nombre','numero_espectadores','fecha','rentabilidad'];
+    public $timestamps = false;
+    protected $fillable = ['promotor_id','recinto_id','nombre','numero_espectadores','fecha','rentabilidad'];
 
     public function promotor()
     {
@@ -22,11 +23,11 @@ class Concierto extends Model
 
     public function grupos()
     {
-        return $this->belongsToMany(Grupo::class);
+        return $this->belongsToMany(Grupo::class,'grupos_conciertos');
     }
 
     public function medios()
     {
-        return $this->belongsToMany(Medio::class);
+        return $this->belongsToMany(Medio::class,'grupos_medios');
     }
 }

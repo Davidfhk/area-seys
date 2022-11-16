@@ -8,5 +8,5 @@ use Src\Domain\Concert;
 
 interface ConcertRepositoryContract
 {
-    public function save(Concert $concert): void;
+    public function save(Concert $concert);
 }

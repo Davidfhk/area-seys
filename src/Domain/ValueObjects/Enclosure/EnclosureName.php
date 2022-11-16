@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\ValueObjects;
+namespace Src\Domain\ValueObjects\Enclosure;
 
-final class ConcertName
+final class EnclosureName
 {
     private $value;
 

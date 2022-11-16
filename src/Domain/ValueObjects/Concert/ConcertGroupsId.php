@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\ValueObjects;
+namespace Src\Domain\ValueObjects\Concert;
 
 final class ConcertGroupsId
 {
@@ -13,7 +13,7 @@ final class ConcertGroupsId
         $this->value = $groupsId;
     }
 
-    public function value(): int
+    public function value(): array
     {
         return $this->value;
     }

@@ -15,20 +15,21 @@ return new class extends Migration
     {
         Schema::create('conciertos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_promotor');
-            $table->unsignedBigInteger('id_recinto');
-            $table->index('id_promotor');
-            $table->index('id_recinto');
+            $table->unsignedBigInteger('promotor_id');
+            $table->unsignedBigInteger('recinto_id');
+            $table->index('promotor_id');
+            $table->index('recinto_id');
             $table->string('nombre');
             $table->integer('numero_espectadores');
             $table->date('fecha');
-            $table->integer('rentabilidad');
+            $table->integer('rentabilidad')->nullable();
+            $table->timestamps();
 
         });
 
        Schema::table('conciertos', function($table) {
-            $table->foreign('id_promotor')->references('id')->on('promotors');
-            $table->foreign('id_recinto')->references('id')->on('recintos');
+            $table->foreign('promotor_id')->references('id')->on('promotors');
+            $table->foreign('recinto_id')->references('id')->on('recintos');
        });
 
     }

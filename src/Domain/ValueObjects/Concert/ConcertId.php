@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Src\Domain\ValueObjects;
+namespace Src\Domain\ValueObjects\Concert;
 
-final class ConcertPromoterId
+final class ConcertId
 {
     private $value;
 
